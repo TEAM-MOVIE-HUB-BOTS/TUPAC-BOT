@@ -1,3 +1,2 @@
 Pyrogram
 TgCrypto
-requests
