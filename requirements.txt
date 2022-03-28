@@ -1,11 +1,3 @@
 Pyrogram
 TgCrypto
-pyromod
-python-dotenv
-dnspython
-motor
-Pillow
-hachoir
-mutagen
-psutil
-aiofiles
+requests
