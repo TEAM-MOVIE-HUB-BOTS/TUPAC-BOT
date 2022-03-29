@@ -19,7 +19,7 @@ async def start_message(bot, message):
             if user.status == "kicked out":
                 await message.reply_text("I'm sorry ☹️ , you banned")
                 return
-         expect UserNotParticipant:
+         except UserNotParticipant:
              await message.reply_text(
                   text="Your not Subscribe My Channel ✨",
                   reply_markup=InlineKeyboardMarkup( [[
