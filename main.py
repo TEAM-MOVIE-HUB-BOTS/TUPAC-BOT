@@ -2,7 +2,7 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.error import UserNotParticipant
 
-force_channel = "Bookanu"
+force_channel = "Movie_hub_lite"
 
 Supermart=Client(
     "Supermart",
