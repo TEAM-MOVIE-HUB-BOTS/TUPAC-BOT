@@ -109,56 +109,21 @@ async def start(bot, update):
     )
 
 
-@Bot.on_message(filters.private & filters.media)
-async def getmedia(bot, update):
-    
-    medianame = DOWNLOAD_LOCATION + str(update.from_user.id)
-    
-    try:
-        message = await update.reply_message(
-            text="`Processing...`",
-            quote=True,
-            disable_web_page_preview=True
-        )
-        await bot.download_media(
-            message=update,
-            file_name=medianame
-        )
-        response = upload_file(medianame)
-        try:
-            os.remove(medianame)
-        except:
-            pass
-    except Exception as error:
-        text=f"Error :- <code>{error}</code>"
-        reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton('More Help', callback_data='help')]]
-        )
-        await message.edit_text(
-            text=text,
-            disable_web_page_preview=True,
-            reply_markup=reply_markup
-        )
-        return
-    
-    text=f"**Link :-** `https://telegra.ph{response[0]}`\n\n**Join :-** @FayasNoushad"
-    reply_markup=InlineKeyboardMarkup(
-        [
-            [
-                InlineKeyboardButton(text="Open Link", url=f"https://telegra.ph{response[0]}"),
-                InlineKeyboardButton(text="Share Link", url=f"https://telegram.me/share/url?url=https://telegra.ph{response[0]}")
-            ],
-            [
-                InlineKeyboardButton(text="Join Updates Channel", url="https://telegram.me/FayasNoushad")
-            ]
-        ]
-    )
-    
-    await message.edit_text(
-        text=text,
-        disable_web_page_preview=True,
-        reply_markup=reply_markup
-    )
+
+@Bot.on_message(filters.photo)
+async def uploadphoto(client, message):
+  msg = await message.reply_text("`Tʀʏɪɴɢ Tᴏ Dᴏᴡɴʟᴏᴀᴅ`")
+  userid = str(message.chat.id)
+  img_path = (f"./DOWNLOADS/{userid}.jpg")
+  img_path = await client.download_media(message=message, file_name=img_path)
+  await msg.edit_text("`Tʀʏɪɴɢ Tᴏ Uᴘʟᴏᴀᴅ.....`")
+  try:
+    tlink = upload_file(img_path)
+  except:
+    await msg.edit_text("`Something went wrong`") 
+  else:
+    await msg.edit_text(f"https://telegra.ph{tlink[0]}")     
+    os.remove(img_path) 
 
 
 Bot.run()
