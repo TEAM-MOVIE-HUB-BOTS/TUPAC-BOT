@@ -13,10 +13,12 @@ Bot = Client(
 
 DOWNLOAD_LOCATION = os.environ.get("DOWNLOAD_LOCATION", "./DOWNLOADS/")
 
-START_TEXT = """Hello {},
-Work Not Completed 😫 More Work Updates in Here @Movie_Hub_Bots.
+START_TEXT = InlineKeyboardMarkup(
+        [[
+        InlineKeyboardButton('➕ Add Me To Your Group ➕', url="http://t.me/SM_Uploader_Bot?startgroup=true")
+        ]]
+    ) 
 
-Love You ❤️"""
 
 HELP_TEXT = """**About Me**
 
