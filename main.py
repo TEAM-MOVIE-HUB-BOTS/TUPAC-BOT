@@ -14,26 +14,26 @@ Bot = Client(
 DOWNLOAD_LOCATION = os.environ.get("DOWNLOAD_LOCATION", "./DOWNLOADS/")
 
 START_TEXT = """Hello {},
-I am an under 5MB media or file to telegra.ph link uploader bot.
+Work Not Completed 😫 More Work Updates in Here @Movie_Hub_Bots.
 
-Made by @FayasNoushad"""
+Love You ❤️"""
 
 HELP_TEXT = """**About Me**
 
-- Just give me a media under 5MB
-- Then I will download it
-- I will then upload it to the telegra.ph link
+- 
+- 
+-
 
-Made by @FayasNoushad"""
+Made by @Movie_Hub_Bots"""
 
 ABOUT_TEXT = """**About Me**
 
-- **Bot :** `Telegraph Uploader`
-- **Creator :** [Fayas](https://telegram.me/TheFayas)
-- **Channel :** [Fayas Noushad](https://telegram.me/FayasNoushad)
-- **Source :** [Click here](https://github.com/FayasNoushad/Telegraph-Uploader-Bot)
-- **Language :** [Python3](https://python.org)
-- **Library :** [Pyrogram](https://pyrogram.org)"""
+- **Bot :** `Social Media Uploader`
+- **. :** [.](https://telegram.me)
+- **. :** [.](https://telegram.me)
+- **. :** [.](https://github.com)
+- **. :** [.](https://python.org)
+- **. :** [.](https://pyrogram.org)"""
 
 START_BUTTONS = InlineKeyboardMarkup(
     [
@@ -58,8 +58,8 @@ HELP_BUTTONS = InlineKeyboardMarkup(
 ABOUT_BUTTONS = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton('Channel', url='https://telegram.me/FayasNoushad'),
-            InlineKeyboardButton('Feedback', url='https://telegram.me/TheFayas')
+            InlineKeyboardButton('Channel', url='https://telegram.me/Movie_Hub_Bots'),
+            InlineKeyboardButton('Feedback', url='https://telegram.me/Movie_Hub_Bots')
         ],
         [
             InlineKeyboardButton('Home', callback_data='home'),
