@@ -1,2 +1,5 @@
-# Media-Bot
-Our team will be adding more features to this boat Its work will continue until the end of the world    written by @Movie_Hub_Bots
+# Social Media Bot
+This bot is made for downloading videos and videos from social media Platforms
+You can add this bot to your group and use it for free
+
+Can be used to download videos from Instagram, Telegraph and YouTube
