@@ -2,8 +2,6 @@ pyrogram==1.2.9
 tgcrypto==1.2.0
 telegraph==1.4.1
 TgCrypto
-https://raw.githubusercontent.com/HasibulKabir/pyrogramarchive/master/pyrogramasyncv0.18.0.zip
-git+https://github.com/ytdl-org/youtube-dl
 wget
 pillow
 hachoir
