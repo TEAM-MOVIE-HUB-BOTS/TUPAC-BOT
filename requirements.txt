@@ -1,7 +1,3 @@
 pyrogram==1.2.9
 tgcrypto==1.2.0
 telegraph==1.4.1
-TgCrypto
-wget
-pillow
-hachoir
