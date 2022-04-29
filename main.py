@@ -13,11 +13,10 @@ Bot = Client(
 
 DOWNLOAD_LOCATION = os.environ.get("DOWNLOAD_LOCATION", "./DOWNLOADS/")
 
-START_TEXT = InlineKeyboardMarkup(
-        [[
-        InlineKeyboardButton('➕ Add Me To Your Group ➕', url="http://t.me/SM_Uploader_Bot?startgroup=true")
-        ]]
-    ) 
+START_TEXT = """Hello {},
+I am an under 5MB media or file to telegra.ph link uploader bot.
+
+Made by @FayasNoushad"""
 
 
 HELP_TEXT = """**About Me**
@@ -126,6 +125,25 @@ async def uploadphoto(client, message):
   else:
     await msg.edit_text(f"https://telegra.ph{tlink[0]}")     
     os.remove(img_path) 
+
+
+
+@Bot.on_message(filters.animation)
+async def uploadgif(client, message):
+  if(message.animation.file_size < 5242880):
+    msg = await message.reply_text("Tʀʏɪɴɢ Tᴏ Dᴏᴡɴʟᴏᴀᴅ")
+    userid = str(message.chat.id)
+    gif_path = (f"./DOWNLOADS/{userid}.mp4")
+    gif_path = await client.download_media(message=message, file_name=gif_path)
+    await msg.edit_text("Tʀʏɪɴɢ Tᴏ Uᴘʟᴏᴀᴅ.....")
+    try:
+      tlink = upload_file(gif_path)
+      await msg.edit_text(f"https://telegra.ph{tlink[0]}")   
+      os.remove(gif_path)   
+    except:
+      await msg.edit_text("Something really Happend Wrong...") 
+  else:
+    await message.reply_text("Size Should Be Less Than 5 mb")
 
 
 Bot.run()
