@@ -1,3 +1,4 @@
-pyrogram==1.2.9
-tgcrypto==1.2.0
-telegraph==1.4.1
+pyrogram
+tgcrypto
+https://github.com/samadii/pyppdf/archive/master.zip
+pyppeteer
