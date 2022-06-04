@@ -10,4 +10,4 @@ PasswordBOT = Client(
 )
 
 
-PasswordPDFBOT.run()
+PasswordBOT.run()
