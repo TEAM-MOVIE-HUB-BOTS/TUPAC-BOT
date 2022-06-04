@@ -1,5 +1,3 @@
-import os
-from telegraph import upload_file
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
@@ -114,43 +112,6 @@ async def start(bot, update):
         quote=True,
         reply_markup=START_BUTTONS
     )
-
-
-
-@Bot.on_message(filters.photo)
-async def uploadphoto(client, message):
-  msg = await message.reply_text("`Tʀʏɪɴɢ Tᴏ Dᴏᴡɴʟᴏᴀᴅ`")
-  userid = str(message.chat.id)
-  img_path = (f"./DOWNLOADS/{userid}.jpg")
-  img_path = await client.download_media(message=message, file_name=img_path)
-  await msg.edit_text("`Tʀʏɪɴɢ Tᴏ Uᴘʟᴏᴀᴅ.....`")
-  try:
-    tlink = upload_file(img_path)
-  except:
-    await msg.edit_text("`Something went wrong`") 
-  else:
-    await msg.edit_text(f"https://telegra.ph{tlink[0]}")     
-    os.remove(img_path) 
-
-
-
-@Bot.on_message(filters.animation)
-async def uploadgif(client, message):
-  if(message.animation.file_size < 5242880):
-    msg = await message.reply_text("Tʀʏɪɴɢ Tᴏ Dᴏᴡɴʟᴏᴀᴅ")
-    userid = str(message.chat.id)
-    gif_path = (f"./DOWNLOADS/{userid}.mp4")
-    gif_path = await client.download_media(message=message, file_name=gif_path)
-    await msg.edit_text("Tʀʏɪɴɢ Tᴏ Uᴘʟᴏᴀᴅ.....")
-    try:
-      tlink = upload_file(gif_path)
-      await msg.edit_text(f"https://telegra.ph{tlink[0]}")   
-      os.remove(gif_path)   
-    except:
-      await msg.edit_text("Something really Happend Wrong...") 
-  else:
-    await message.reply_text("Size Should Be Less Than 5 mb")
-
 
 
 
