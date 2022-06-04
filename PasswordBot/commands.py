@@ -1,5 +1,5 @@
 from pyrogram import Client, filters
-
+import random,os
 
 
 @Client.on_message(filters.command("start"))
