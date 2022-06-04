@@ -6,14 +6,13 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 
 Bot = Client(
-    "Telegraph Uploader Bot",
-    bot_token="5217737016:AAH_vWXyWAH1TAwbyr_baourWjNYYpi7GtY",
+    "Password PDF",
+    bot_token="5217737016:AAGevb2eO2rPj56yn9sf3sTJjklZ9vbg-3k",
     api_id="8406611",
     api_hash="5820bc246505e0ff60af5391d649f9a6"
 )
 
 
-DOWNLOAD_LOCATION = os.environ.get("DOWNLOAD_LOCATION", "./DOWNLOADS/")
 
 START_TEXT = """Hello {},
 Work Not Completed 😫.
