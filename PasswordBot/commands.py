@@ -8,7 +8,7 @@ async def start_cmd(bot, message):
 
 
 @Client.on_message(filters.private & filters.text)
-async def password(bot, update):
+async def message(bot, update):
     
     await message.reply_text('`Processing...`')
     
