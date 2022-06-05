@@ -9,26 +9,40 @@ async def start_cmd(bot, message):
     await message.reply("Hi, {message.chat.first_name} iam Password Generator")
 
 
-@Client.on_message(filters.private & filters.text & ~filters.regex('/start'))
-async def webdl(_, m):
+@Client.on_message(filters.private & filters.audio)
+async def tag(bot, m):
+    mes = await m.reply("`Downloading...`", parse_mode='md')
+    await m.download(f"temp/{m.audio.file_name}.mp3")
+    music = load_file(f"temp/{m.audio.file_name}.mp3")
 
-    if not m.text.startswith('http'):
-        return await m.reply("the URL must start with 'http' or 'https'")
+    try:
+        artwork = music['artwork']
+        image_data = artwork.value.data
+        img = Image.open(io.BytesIO(image_data))
+        img.save("temp/artwork.jpg")
+    except ValueError:
+        image_data = None
 
-    msg = await m.reply('Processing..')
-    url = m.text
-    name = dir = str(m.chat.id)
-    if not os.path.isdir(dir):
-        os.makedirs(dir)
+    await mes.delete()
+    fname = await bot.ask(m.chat.id,'`Send the Filename`', filters=filters.text, parse_mode='Markdown')
+    title = await bot.ask(m.chat.id,'`Send the Title name`', filters=filters.text, parse_mode='Markdown')
+    artist = await bot.ask(m.chat.id,'`Send the Artist(s) name`', filters=filters.text, parse_mode='Markdown')
+    answer = await bot.ask(m.chat.id,'`Send the Artwork or` /skip', filters=filters.photo | filters.text, parse_mode='Markdown')
+    music.remove_tag('artist')
+    music.remove_tag('title')
+    music['artist'] = artist.text
+    music['title'] = title.text
 
-    obj = urlDownloader(imgFlg=True, linkFlg=True, scriptFlg=True)
-    res = obj.savePage(url, dir)
-    if not res:
-        return await msg.edit('something went wrong!')
+    if answer.photo:
+        await bot.download_media(message=answer.photo, file_name="temp/artwork.jpg")
+        music.remove_tag('artwork')
+        with open('temp/artwork.jpg', 'rb') as img_in:
+            music['artwork'] = img_in.read()
+    music.save()
 
-    shutil.make_archive(name, 'zip', base_dir=dir)
-    await m.reply_document(name+'.zip')
-    await msg.delete()
-
-    shutil.rmtree(dir)
-    os.remove(name+'.zip')
+    try:
+        await bot.send_audio(chat_id=m.chat.id, file_name=fname.text, performer=artist.text, title=title.text, duration=m.audio.duration, audio=f"temp/{m.audio.file_name}.mp3", thumb='temp/artwork.jpg' if answer.photo or image_data else None)
+    except Exception as e:
+        print(e)
+        return
+    os.remove(f"temp/{m.audio.file_name}.mp3")
