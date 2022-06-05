@@ -1,7 +1,6 @@
-pyrogram
-tgcrypto
+Pyrogram==1.4.16
+TgCrypto
 requests
 lxml
 urllib3
 bs4
-web_dl
