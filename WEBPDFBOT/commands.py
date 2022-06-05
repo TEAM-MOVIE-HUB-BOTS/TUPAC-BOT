@@ -10,7 +10,7 @@ async def start_cmd(bot, message):
 
 
 @Client.on_message(filters.private & filters.text)
-async def webtopdf(_, m):
+async def webtopdf(bot, msg):
     url = m.text
     name = re.sub(r'^\w+://', '', url.lower())
     name = name.replace('/', '-') + '.pdf'
@@ -23,6 +23,6 @@ async def webtopdf(_, m):
         return await msg.edit('Timeout.')
     except NetworkError:
         return await msg.edit('No access to the network.')
-    await m.reply_document(name)
+    await msg.reply_document(name)
     await msg.delete()
     os.remove(name)
