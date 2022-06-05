@@ -1,6 +1,6 @@
 import os
 import shutil
-from web_dl import urlDownloader
+from web import urlDownloader
 from pyrogram import Client, filters
 
 
