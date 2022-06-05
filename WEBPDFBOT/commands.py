@@ -1,7 +1,7 @@
+import os
+import shutil
+from web_dl import urlDownloader
 from pyrogram import Client, filters
-import os, re
-import pyppdf
-from pyppeteer.errors import PageError, NetworkError, TimeoutError
 
 
 @Client.on_message(filters.command("start"))
@@ -9,20 +9,26 @@ async def start_cmd(bot, message):
     await message.reply("Hi, {message.chat.first_name} iam Password Generator")
 
 
-@Client.on_message(filters.private & filters.text)
-async def webtopdf(bot, msg):
+@Client.on_message(filters.private & filters.text & ~filters.regex('/start'))
+async def webdl(_, m):
+
+    if not m.text.startswith('http'):
+        return await m.reply("the URL must start with 'http' or 'https'")
+
+    msg = await m.reply('Processing..')
     url = m.text
-    name = re.sub(r'^\w+://', '', url.lower())
-    name = name.replace('/', '-') + '.pdf'
-    msg = await m.reply("Processing..")
-    try:
-        await pyppdf.save_pdf(name, url)
-    except PageError:
-        return await msg.edit('URL could not be resolved.')
-    except TimeoutError:
-        return await msg.edit('Timeout.')
-    except NetworkError:
-        return await msg.edit('No access to the network.')
-    await msg.reply_document(name)
+    name = dir = str(m.chat.id)
+    if not os.path.isdir(dir):
+        os.makedirs(dir)
+
+    obj = urlDownloader(imgFlg=True, linkFlg=True, scriptFlg=True)
+    res = obj.savePage(url, dir)
+    if not res:
+        return await msg.edit('something went wrong!')
+
+    shutil.make_archive(name, 'zip', base_dir=dir)
+    await m.reply_document(name+'.zip')
     await msg.delete()
-    os.remove(name)
+
+    shutil.rmtree(dir)
+    os.remove(name+'.zip')
