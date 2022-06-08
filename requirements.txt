@@ -1,5 +1,4 @@
 Pyrogram==1.4.16
 TgCrypto
-pyromod
-music_tag
-Pillow
+aiohttp
+requests
