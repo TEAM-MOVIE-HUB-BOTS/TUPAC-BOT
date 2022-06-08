@@ -6,7 +6,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message, 
     InputTextMessageContent
 
 from configs import Config
-from tool import SearchYTS, SearchAnime, Search1337x, SearchPirateBay
+from tool import API_ANIME , API_PIRATEBAY, API_YTS , API_1337x 
 
 
 
