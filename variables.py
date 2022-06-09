@@ -10,5 +10,3 @@ PICS = os.environ.get("PICS", "https://telegra.ph/file/f1e190cc3cf92409ecefb.jpg
 ADMIN = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMIN', '900873119').split()]
 
 FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "-1001675753014"))
-
-FORCE_MSG = os.environ.get("FORCE_SUB_MSG", "Hello {first}\n\n<b>You need to join in my Channel/Group to use me\n\nKindly Please join Channel</b>")
