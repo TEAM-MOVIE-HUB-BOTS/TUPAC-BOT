@@ -5,7 +5,7 @@ import requests
 import os
 import ffmpeg 
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from variables import PICS
+from variables import PICS, FORCE_SUB_CHANNEL, FORCE_MSG
 import random
 from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated
 from helper_func import subscribed, encode, decode, get_messages
