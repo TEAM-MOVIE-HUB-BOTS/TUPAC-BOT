@@ -18,7 +18,7 @@ def time_to_seconds(time):
 
 @Client.on_message(filters.command("start"))
 async def start_cmd(bot, message):
-    await message.reply_chat_action("Loading")
+    await message.reply_chat_action("speaking")
     await message.reply_photo(
         photo=random.choice(PICS),
         caption=f"Hello {message.from_user.mention}👋🏻\nMy Name Is Tupac I Can Download Muisc From YouTube",
