@@ -4,6 +4,7 @@ from youtube_search import YoutubeSearch
 import requests
 import os
 import ffmpeg 
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 
 
@@ -17,7 +18,14 @@ def time_to_seconds(time):
 
 @Client.on_message(filters.command("start"))
 async def start_cmd(bot, message):
-    await message.reply("Hi")
+    await message.reply_chat_action("Loading")
+    await message.reply_photo(
+        photo=random.choice(PICS),
+        caption=f"Hello {message.from_user.mention}👋🏻\nMy Name Is Tupac I Can Download Muisc From YouTube",
+        reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton(text='🤔 Help', callback_data='help'), InlineKeyboardButton(text='🤖 About', callback_data='about')], [InlineKeyboardButton(text='Close 🔒', callback_data='close')]])
+)
+
+
 
 
 
