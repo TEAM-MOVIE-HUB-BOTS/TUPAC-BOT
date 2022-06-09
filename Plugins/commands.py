@@ -5,7 +5,7 @@ import requests
 import os
 import ffmpeg 
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-
+from variables import PICS
 
 
 
