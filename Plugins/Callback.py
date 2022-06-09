@@ -11,7 +11,7 @@ async def callback(bot, msg):
    data = msg.data
    if data == "help":
        await msg.message.edit(       
-           text="""HEY {message.from_user.mention}
+           text=f"""HEY {message.from_user.mention}
 <b><u>MY COMMANDS</u></b>
 ◉ /start - Check Bot Alive 
 ◉ /id - your tg id
