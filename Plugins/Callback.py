@@ -8,7 +8,6 @@ import asyncio
 
 @Client.on_callback_query()
 async def callback(bot, msg):
-   data = msg.data
    if data == "help":
        await msg.message.edit(       
            text=f"""HEY {message.from_user.mention}
