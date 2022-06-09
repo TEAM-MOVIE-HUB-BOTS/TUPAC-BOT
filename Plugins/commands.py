@@ -5,11 +5,8 @@ import requests
 import os
 import ffmpeg 
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from variables import PICS, FORCE_SUB_CHANNEL, FORCE_MSG
+from variables import PICS
 import random
-from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated
-from helper_func import subscribed, encode, decode, get_messages
-from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated
 
 
 def time_to_seconds(time):
@@ -19,49 +16,15 @@ def time_to_seconds(time):
 
 
 
-@Client.on_message(filters.command('start') & filters.private & subscribed)
+@Client.on_message(filters.command('start') & filters.private)
 async def start_cmd(bot, message):
-    await message.reply_chat_action("speaking")
+    await message.reply_chat_action("typing")
     await message.reply_photo(
         photo=random.choice(PICS),
         caption=f"Hello {message.from_user.mention}👋🏻\nMy Name Is Tupac \nI Can Download Muisc From YouTube",
         reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton(text='🤔 Help', callback_data='help'), InlineKeyboardButton(text='🤖 About', callback_data='about')], [InlineKeyboardButton(text='Close 🔒', callback_data='close')]])
 )
 
-
-@Client.on_message(filters.command('start') & filters.private)
-async def not_joined(client: Client, message: Message):
-    buttons = [
-        [
-            InlineKeyboardButton(
-                "Join Channel",
-                url = client.invitelink)
-        ]
-    ]
-    try:
-        buttons.append(
-            [
-                InlineKeyboardButton(
-                    text = 'Try Again',
-                    url = f"https://t.me/{client.username}?start={message.command[1]}"
-                )
-            ]
-        )
-    except IndexError:
-        pass
-
-    await message.reply(
-        text = FORCE_MSG.format(
-                first = message.from_user.first_name,
-                last = message.from_user.last_name,
-                username = None if not message.from_user.username else '@' + message.from_user.username,
-                mention = message.from_user.mention,
-                id = message.from_user.id
-            ),
-        reply_markup = InlineKeyboardMarkup(buttons),
-        quote = True,
-        disable_web_page_preview = True
-    )
 
 
 
@@ -111,13 +74,13 @@ def a(client, message):
         )
         print(str(e))
         return
-    m.edit("🔎 𝐅𝐢𝐧𝐝𝐢𝐧𝐠 𝐀 𝐒𝐨𝐧𝐠 🎶 𝐏𝐥𝐞𝐚𝐬𝐞 𝐖𝐚𝐢𝐭 ⏳️ 𝐅𝐨𝐫 𝐅𝐞𝐰 𝐒𝐞𝐜𝐨𝐧𝐝𝐬 [🚀](https://telegra.ph/file/397c4b8b1324fa878e068.mp4)")
+    m.edit("🔎 𝐅𝐢𝐧𝐝𝐢𝐧𝐠 𝐀 𝐒𝐨𝐧𝐠 🎶 𝐏𝐥𝐞𝐚𝐬𝐞 𝐖𝐚𝐢𝐭 ⏳️ 𝐅𝐨𝐫 𝐅𝐞𝐰 𝐒𝐞𝐜𝐨𝐧𝐝𝐬 [🚀]("https://telegra.ph/file/397c4b8b1324fa878e068.mp4")
     try:
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = f'🎧 𝐓𝐢𝐭𝐥𝐞 : [{title[:35]}]({link})\n⏳ 𝐃𝐮𝐫𝐚𝐭𝐢𝐨𝐧 : `{duration}`\n🖲️ YouTube : [Click Here](https://youtu.be/3pN0W4KzzNY)\n👁‍🗨 𝐕𝐢𝐞𝐰𝐬 : `{views}`\n\nPowered 𝐁𝐲 : @Movie_Hub_Bots'
+        rep = f'🎧 𝐓𝐢𝐭𝐥𝐞 : [{title[:35]}]({link})\n⏳ 𝐃𝐮𝐫𝐚𝐭𝐢𝐨𝐧 : `{duration}`\n🖲️ YouTube : [Click Here](https://youtube.com/watch?)\n👁‍🗨 𝐕𝐢𝐞𝐰𝐬 : {views}\n\nPowered 𝐁𝐲 : @Movie_Hub_Bots'
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr)-1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
