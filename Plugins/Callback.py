@@ -38,4 +38,16 @@ Nothing More""",
                   InlineKeyboardButton("🔒 CLOSE", callback_data="close")
                   ]]
                   )
-         )        
+         )    
+   elif data == "start":
+         await msg.message.edit(
+         text=f"Hello {message.from_user.mention}👋🏻\nMy Name Is Tupac\nI Can Download Muisc From YouTube",
+         reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton(text='🤔 Help', callback_data='help'), InlineKeyboardButton(text='🤖 About', callback_data='about')], [InlineKeyboardButton(text='Close 🔒', callback_data='close')]])
+)
+   elif data == "close":
+        await msg.message.delete()
+        try:
+            await msg.message.reply_to_message.delete()
+        except:
+            pass
+
