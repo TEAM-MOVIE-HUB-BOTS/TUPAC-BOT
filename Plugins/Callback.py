@@ -32,7 +32,6 @@ Powered By  @Movie_Hub_Bots
          await msg.message.edit(
              text=f""" 
 Nothing More""",
-             disable_web_page_preview = True,
              reply_markup=InlineKeyboardMarkup( [[
                   InlineKeyboardButton("↩️ GO BACK", callback_data="start"),
                   InlineKeyboardButton("🔒 CLOSE", callback_data="close")
