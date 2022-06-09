@@ -1,3 +1,3 @@
-from pyrogram import Client
+from pyrogram import Client, filters
 from random import choice
 from config import ADMINS
