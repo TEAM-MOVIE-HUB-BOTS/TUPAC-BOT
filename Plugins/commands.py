@@ -6,7 +6,7 @@ import os
 import ffmpeg 
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from variables import PICS
-
+import random
 
 
 def time_to_seconds(time):
