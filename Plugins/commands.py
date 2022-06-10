@@ -24,8 +24,6 @@ async def start_cmd(bot, message):
         reply_markup=InlineKeyboardMarkup( [[
             InlineKeyboardButton("🍁Group🍁", url="https://t.me/"),
             InlineKeyboardButton("🍀Updates🍀", url="https://t.me/Movie_Hub_Bots")
-            ],[
-            InlineKeyboardButton("💻 Dev", url="t.me")
             ]]
         )
 
@@ -33,7 +31,7 @@ async def start_cmd(bot, message):
 
 
 @Client.on_message(filters.command(['song']))
-async def a(client, message):
+def a(client, message):
     query = ''
     for i in message.command[1:]:
         query += ' ' + str(i)
