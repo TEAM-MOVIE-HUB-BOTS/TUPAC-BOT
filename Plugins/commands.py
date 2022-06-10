@@ -22,10 +22,15 @@ async def start_cmd(bot, message):
     await message.reply_photo(
         photo=random.choice(PICS),
         caption=f"Hello {message.from_user.mention}👋🏻\nMy Name Is Tupac \nI Can Download Muisc From YouTube",
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text='🤔 Help', callback_data='help'), InlineKeyboardButton(text='🤖 About', callback_data='about')], [InlineKeyboardButton(text='Close 🔒', callback_data='close')]])
-)
-
-
+        reply_markup=InlineKeyboardMarkup( [[
+            InlineKeyboardButton("Group", url="https://t.me/"),
+            InlineKeyboardButton("📢 𝐔𝐏𝐃𝐀𝐓𝐄𝐒", url="https://t.me/Movie_Hub_Bots")
+            ],[            
+            InlineKeyboardButton("🤔 HELP", callback_data="help"),
+            InlineKeyboardButton("🤖 ABOUT", callback_data="about")
+            ]]
+            )
+        )
 
 
 
@@ -80,7 +85,7 @@ def a(client, message):
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = f'🎧 𝐓𝐢𝐭𝐥𝐞 : [{title[:35]}]({link})\n⏳ 𝐃𝐮𝐫𝐚𝐭𝐢𝐨𝐧 : `{duration}`\n🖲️ YouTube : [Click Here](https://youtube.com/watch?)\n👁‍🗨 𝐕𝐢𝐞𝐰𝐬 : {views}\n\nPowered 𝐁𝐲 : @Movie_Hub_Bots'
+        rep = f'🎧 𝐓𝐢𝐭𝐥𝐞 : [{title[:35]}]({link})\n⏳ 𝐃𝐮𝐫𝐚𝐭𝐢𝐨𝐧 : `{duration}`\n🖲️ YouTube : [Click Here]({link})\n👁‍🗨 𝐕𝐢𝐞𝐰𝐬 : {views}\n\nPowered 𝐁𝐲 : @Movie_Hub_Bots'
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr)-1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
