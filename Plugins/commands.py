@@ -24,10 +24,8 @@ async def start_cmd(bot, message):
         caption=f"Hello {message.from_user.mention}👋🏻\nMy Name Is Tupac \nI Can Download Muisc From YouTube",
         reply_markup=InlineKeyboardMarkup( [[
             InlineKeyboardButton("Group", url="https://t.me/"),
-            InlineKeyboardButton("📢 𝐔𝐏𝐃𝐀𝐓𝐄𝐒", url="https://t.me/Movie_Hub_Bots")
-            ],[            
-            InlineKeyboardButton("🤔 HELP", callback_data="help"),
-            InlineKeyboardButton("🤖 ABOUT", callback_data="about")
+            InlineKeyboardButton("Updates", url="https://t.me/Movie_Hub_Bots")
+ 
             ]]
             )
         )
