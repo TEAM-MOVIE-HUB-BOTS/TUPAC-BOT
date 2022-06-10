@@ -5,8 +5,6 @@ import random
 
 
 
-
-
 @Client.on_message(filters.command('start') & filters.private)
 async def start_cmd(bot, message):
     await message.reply_chat_action("typing")
@@ -18,7 +16,3 @@ async def start_cmd(bot, message):
             InlineKeyboardButton("🍀Updates🍀", url="https://t.me/Movie_Hub_Bots")
             ]]
         )
-
-
-
-
