@@ -4,7 +4,6 @@ youtube_dl
 youtube_search_python
 youtube_search
 requests
-ffmpeg-python
 motor
 aiofiles
 dnspython
@@ -12,5 +11,4 @@ pymongo
 lyricsgenius
 wget
 yt_dlp
-ffmpeg
-avconv
+
