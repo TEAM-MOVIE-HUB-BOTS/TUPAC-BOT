@@ -33,7 +33,7 @@ async def start_cmd(bot, message):
 
 
 @Client.on_message(filters.command(['song']))
-def a(client, message):
+async def a(client, message):
     query = ''
     for i in message.command[1:]:
         query += ' ' + str(i)
