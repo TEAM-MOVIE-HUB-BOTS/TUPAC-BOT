@@ -18,4 +18,4 @@ async def start_cmd(bot, message):
                     InlineKeyboardButton('🍀Updates🍀', url='https://t.me/Movie_Hub_Bots')
                 ]
             ]
-        )
+)
