@@ -12,4 +12,3 @@ lyricsgenius
 wget
 yt_dlp
 ffmpeg
-TgCrypto
