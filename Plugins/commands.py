@@ -20,7 +20,7 @@ async def start_cmd(bot, message):
     await message.reply_chat_action("typing")
     await message.reply_photo(
         photo=random.choice(PICS),
-        caption=f"Hello {message.from_user.mention}👋🏻 My Name Is {bot.mention} \nI Can Download Muisc From YouTube",
+        caption=f"Hello {message.from_user.mention}👋🏻 My Name Is {bot.name} \nI Can Download Muisc From YouTube",
         reply_markup=InlineKeyboardMarkup( [[
             InlineKeyboardButton("Group", url="https://t.me/"),
             InlineKeyboardButton("Updates", url="https://t.me/Movie_Hub_Bots")
