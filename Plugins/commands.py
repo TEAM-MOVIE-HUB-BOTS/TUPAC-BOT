@@ -5,7 +5,7 @@ import requests
 import os
 import ffmpeg 
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from variables import PICS
+from config import PICS
 import random
 
 def time_to_seconds(time):
@@ -24,9 +24,9 @@ async def start_cmd(bot, message):
         reply_markup=InlineKeyboardMarkup( [[
             InlineKeyboardButton("🍁Group🍁", url="https://t.me/"),
             InlineKeyboardButton("🍀Updates🍀", url="https://t.me/Movie_Hub_Bots")
- 
+            ],[
+            InlineKeyboardButton("💻 Dev", url="t.me")
             ]]
-            )
         )
 
 
