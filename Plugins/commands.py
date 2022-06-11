@@ -12,12 +12,17 @@ async def start_cmd(bot, message):
     await message.reply_photo(
         photo=random.choice(PICS),
         caption=f"Hello {message.from_user.mention}👋🏻 My Name Is TuPc \nI Can Download Muisc From YouTube",
-        reply_markup=InlineKeyboardMarkup( [[
-            InlineKeyboardButton("🍁Group🍁", url="https://t.me/A_BOTT"),
-            InlineKeyboardButton("🍀Updates🍀", url="https://t.me/B")
-            ]]
-            )
-        )         
+        reply_markup=reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton(text='🤔 Help', callback_data='help'), InlineKeyboardButton(text='🤖 About', callback_data='about')], [InlineKeyboardButton(text='Close 🔒', callback_data='close')]])
+
+
+
+
+
+
+
+
+
+    
 
 
 @Client.on_message(filters.private & filters.user(ADMIN) & filters.command(["broadcast"]))
