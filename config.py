@@ -1,6 +1,6 @@
-from os import environ
-import logging
 import re
+import os
+from os import environ
 
 id_pattern = re.compile(r'^.\d+$')
 
