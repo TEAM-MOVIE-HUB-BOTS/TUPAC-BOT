@@ -1,5 +1,6 @@
 import pymongo 
 import os
+from config import DB_URL
 
 DB_NAME = os.environ.get("DB_NAME","Cloud19")
 DB_URL = os.environ.get("DB_URL", "")
