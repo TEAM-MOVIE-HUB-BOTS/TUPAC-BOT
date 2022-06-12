@@ -12,15 +12,14 @@ async def start_cmd(bot, message):
     await message.reply_photo(
         photo=random.choice(PICS),
         caption=f"Hello {message.from_user.mention}👋🏻 My Name Is TuPc \nI Can Download Muisc From YouTube",
-        reply_markup = InlineKeyboardMarkup( [[
-            InlineKeyboardButton(text='🌼 Owner 🌼' url='github.com/Tupac-Owners')
-            InlineKeyboardButton(text='🍀 Updates 🍀', url='t.me/Movie_Hub_Bots')
-            ],[
-            InlineKeyboardButton(text='👀 Help', callback_data='help'),
-            InlinekeyboardButton(text='🤖 About', callback_data='about')  
-            ]]
-            )
-        )
+        reply_markup=InlineKeyboardMarkup( [[
+             InlineKeyboardButton("👀 Help", callback_data="help"),
+             InlineKeyboardButton("🤖 Abouy", callback_data="about")
+             ],[
+             InlineKeyboardButton ("☘️ Updates 🍀", url="https://t.me/movie_hub_bots")
+             ]]
+             )
+         )
 
 
 @Client.on_message(filters.private & filters.user(ADMIN) & filters.command(["broadcast"]))
