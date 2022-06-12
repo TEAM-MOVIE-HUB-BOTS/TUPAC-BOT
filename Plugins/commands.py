@@ -13,7 +13,7 @@ async def start_cmd(bot, message):
         photo=random.choice(PICS),
         caption=f"Hello {message.from_user.mention}👋🏻 My Name Is TuPc \nI Can Download Muisc From YouTube",
         reply_markup = InlineKeyboardMarkup( [[
-            InlineKeyboardButton(text='🌼 Owner 🌼' url='github.com/Tupac-Owners'),
+            InlineKeyboardButton(text='🌼 Owner 🌼' url='github.com/Tupac-Owners')
             InlineKeyboardButton(text='🍀 Updates 🍀', url='t.me/Movie_Hub_Bots')
             ],[
             InlineKeyboardButton(text='👀 Help', callback_data='help'),
