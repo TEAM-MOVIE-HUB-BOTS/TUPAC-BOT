@@ -3,3 +3,6 @@ TgCrypto==1.2.2
 pymongo
 dnspython
 asyncio
+youtube-dl
+youtube_search
+requests
