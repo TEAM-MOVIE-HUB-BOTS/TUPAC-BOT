@@ -11,10 +11,10 @@ async def start_cmd(bot, message):
     await message.reply_chat_action("typing")
     await message.reply_photo(
         photo=random.choice(PICS),
-        caption=f"Hello {message.from_user.mention}👋🏻 My Name Is TuPc \nI Can Download Muisc From YouTube",
+        caption=f"Hello {message.from_user.mention}👋🏻 My Name Is TuPc \nI Can Download Muisc From YouTube\nUse This Command /Song",
         reply_markup=InlineKeyboardMarkup( [[
              InlineKeyboardButton("👀 Help", callback_data="help"),
-             InlineKeyboardButton("🤖 Abouy", callback_data="about")
+             InlineKeyboardButton("🤖 About", callback_data="about")
              ],[
              InlineKeyboardButton ("☘️ Updates 🍀", url="https://t.me/movie_hub_bots")
              ]]
